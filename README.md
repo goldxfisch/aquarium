@@ -35,6 +35,7 @@
     - Ftlpath : Location to FreeMarker Templates to maintain Cucumber Feature
     - FeaturePath : Location to Features that are to be maintained by FreeMarker
   
+  ScanDirectory : Is a Unit test pertaining to FIle Details: FIle Name , Size , MimeType , EXtension 
   
   <u>CreateVehicleRegistrationFromDVLAFeature</u>
     - Code to filter  and read the CSV/EXCEL MimeType files from TestDataPath( application.properties)into FileDetails(POJO)

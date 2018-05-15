@@ -15,6 +15,9 @@ import org.slf4j.LoggerFactory;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertThat;
+
 public class VehicleRegistrationDetailPage extends UIHelper {
     final static Logger logger = LoggerFactory.getLogger(VehicleRegistrationDetailPage.class);
 
@@ -48,22 +51,21 @@ public class VehicleRegistrationDetailPage extends UIHelper {
         // Write code here that turns the phrase above into concrete actions
         ///throw new PendingException();
         logger.info( " Inside VehicleRegistrationDetailPage : the_user_is_displayed_vehicle_details");
+
         waitForElement = shortWait(getScreenDriver(),15);
-        //////waitForElement.until(ExpectedConditions.visibilityOfElementLocated(By.className("heading-large")));
-
-
-
         waitForElement.until(ExpectedConditions.presenceOfElementLocated(By.className("heading-large")));
+
+
+
+  ////      waitForElement.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("heading-large")));
+
 ///        waitForElement.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(LargeHeading)));
         logger.info("LARGE HEADING <"+LargeHeading.getText()+">");
 
-        StringBuilder tempScreenShotName = new StringBuilder(regNum).append("_");
-
-
         String testCaseResult = "PASS";
-boolean flagIssue1 = false;
-boolean flagIssue2 = false;
-boolean flagIssue3 = false;
+        boolean flagIssue1 = false;
+        boolean flagIssue2 = false;
+        boolean flagIssue3 = false;
         if ( LargeHeading.getText().contains(strConfirmationPageHeader))
         {
             logger.info("Inside Error --- Is this the vehicle you are looking for?");
@@ -73,26 +75,7 @@ boolean flagIssue3 = false;
             String actualRegNum="";
             String actualMake = "";
             String actualColour="";
-            int i =0;
-            tempScreenShotName.append("FOUND").append("_").append(LocalDateTime.now());
 
-            for (WebElement summaryElement : SummaryElements) {
-                if ( i == 0 ) actualRegNum = summaryElement.getText();
-                if ( i == 1 ) actualMake=summaryElement.getText();
-                if ( i == 2 ) actualColour=summaryElement.getText();
-
-                logger.info(summaryElement.getText());
-                logger.info(actualRegNum);
-                logger.info(actualMake);
-                logger.info(actualColour);
-
-                i++;
-                }
-
-            if ( SummaryElements.get(0).getText().contains(regNum))
-                logger.info("FOUND REGISTRATION NUMBER"+regNum);
-            else
-            { logger.info("NOT FOUND REGISTRATION NUMBER"+regNum); flagIssue1=true; }
 
             if ( SummaryElements.get(1).getText().contains(make))
                 logger.info("FOUND MAKE "+make);
@@ -112,15 +95,23 @@ boolean flagIssue3 = false;
                 logger.info("VEHICLE REGISTRATION NUMBER <"+regNum
                         + "> MAKE MISMATCHED  FOUND <"
                         + ">   EXPECTED <"+make+">", flagIssue2 );
+            assertThat( SummaryElements.get(2).getText(),containsString(colour) );
+            assertThat( SummaryElements.get(1).getText(),containsString(make) );
 
 
         }
+        waitForElement = shortWait(getScreenDriver(),15);
+        //////waitForElement.until(ExpectedConditions.visibilityOfElementLocated(By.className("heading-large")));
+
+
+
+        waitForElement.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("heading-large")));
         if ( LargeHeading.getText().contains(strPageHeader))
         {
             logger.info("Inside Error Scenario--- Enter the registration number of the vehicle");
-            waitForElement = shortWait(getScreenDriver(),5);
-            waitForElement.until(ExpectedConditions.visibilityOfElementLocated(By.className("error-summary")));
-
+            waitForElement = shortWait(getScreenDriver(),15);
+            ///waitForElement.until(ExpectedConditions.presenceOfAllElementsLocatedBy(LargeHeading));
+           /// waitForElement.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(ErrorSummaryTable)));
             for (  WebElement ErrorSummaryElement :  ErrorSummaryTable)
             {
                 logger.info("Inside Error Scenario 2 :<"+ErrorSummaryElement.getText() +">");
@@ -130,11 +121,15 @@ boolean flagIssue3 = false;
                     for (WebElement errorElement : ErrorElements)
                     { logger.info(errorElement.getText());
                     }
-                testCaseResult = "FAIL";
-                }
+                 }
             }
-            tempScreenShotName.append("_FAILED_WRONG_REG_ENTERED").append("_").append(LocalDateTime.now());
+
         }
+
+        waitForElement = shortWait(getScreenDriver(),15);
+        waitForElement.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("heading-large")));
+
+
         if ( LargeHeading.getText().contains("Vehicle details could not be found"))
         {
             logger.info("Inside Error Scenario 3--- Vehicle details could not be found");
@@ -142,24 +137,19 @@ boolean flagIssue3 = false;
             waitForElement = shortWait(getScreenDriver(),5);
             waitForElement.until(ExpectedConditions.visibilityOfElementLocated(By.className("column-two-thirds")));
 
-            WebDriverWait wait3 = new WebDriverWait( getScreenDriver() , 10);
-            wait3.until(ExpectedConditions.visibilityOfElementLocated(By.className("column-two-thirds")));
-            tempScreenShotName.append("_FAILED_REG_NOT_FOUND").append("_").append(LocalDateTime.now());
 
             for ( WebElement AdvisoryElements : AdvisorySection)
             {
                 logger.info(AdvisoryElements.getText());
             }
-        testCaseResult = "FAIL";
         }
 
 
-
+        StringBuilder tempScreenShotName= new StringBuilder(regNum).append("_").append(LocalDateTime.now());
         String screenName = tempScreenShotName.toString()
                 .replace(" ","")
                 .replace(":","")
                 .replace(".","");
-
 
         takeScreenShot(getScreenDriver(),screenName);
 

@@ -32,6 +32,8 @@ public class SeleniumWebDriverEngine {
                 capabilitiesIE.setCapability("enablePersistentHover", true);
                 capabilitiesIE.setCapability("requireWindowFocus", true);
                 capabilitiesIE.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
+                capabilitiesIE.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+
                 tempWebDriver = new InternetExplorerDriver();
 
                 break;

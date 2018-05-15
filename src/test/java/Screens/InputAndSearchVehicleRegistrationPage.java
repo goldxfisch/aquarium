@@ -53,7 +53,7 @@ public class InputAndSearchVehicleRegistrationPage extends UIHelper {
             safeJavaScriptClick(btnContinue);
             waitForElement = shortWait(getScreenDriver(),10);
             waitForElement.until(ExpectedConditions.visibilityOfElementLocated(By.className("heading-large")));
-            
+
             StringBuilder tempScreenShotName = new StringBuilder(regNum).append("_");
             tempScreenShotName.append(LocalDateTime.now());
 
@@ -63,8 +63,7 @@ public class InputAndSearchVehicleRegistrationPage extends UIHelper {
                     .replace(".","");
 
 
-            takeScreenShot(getScreenDriver(),screenName);
-
+     ///       takeScreenShot(getScreenDriver(),screenName);
 
         }
         else

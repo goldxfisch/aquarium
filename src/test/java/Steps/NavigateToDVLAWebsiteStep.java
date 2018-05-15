@@ -37,10 +37,17 @@ public class NavigateToDVLAWebsiteStep extends UIHelper {
 public void tearDown() throws InterruptedException {
     logger.info(" ==========================================>INSIDE TEARDOWN @SmokeTests");
     getScreenDriver().close();
+
     try {
-        Runtime.getRuntime().exec("taskkill /F /IM MicrosoftWebDriver.exe");
-        Thread.sleep(10000);
-    } catch (IOException e) {
+        if ((new PropertyReader("/application.properties").readProperty("TestDataPath")).equals("IE")) {
+            Runtime.getRuntime().exec("taskkill /F /IM IEDriverServer.exe");
+        }
+        if ((new PropertyReader("/application.properties").readProperty("TestDataPath")).equals("EDGE")) {
+            Runtime.getRuntime().exec("taskkill /F /IM MicrosoftWebDriver.exe");
+        }
+        Thread.sleep(1000);
+    }
+    catch (IOException e) {
         e.printStackTrace();
     }
 

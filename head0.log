@@ -1,0 +1,17 @@
+2018-05-15 14:43:35 [main] INFO Steps.NavigateToDVLAWebsiteStep - Inside NavigateToDVLAWebsiteStep Step
+2018-05-15 14:43:37 [main] INFO Screens.DVLALandingPage -  Inside DVLALandingPage : the_user_is_on_landing_page
+2018-05-15 14:43:37 [main] INFO Screens.DVLALandingPage -  Exiting DVLALandingPage : the_user_is_on_landing_page
+2018-05-15 14:43:37 [main] INFO Steps.NavigateToDVLAWebsiteStep - Exiting NavigateToDVLAWebsiteStep Step
+2018-05-15 14:43:37 [main] INFO Steps.NavigateToDVLAWebsiteStep - Inside  STEP : input_registration_number(regNum)
+2018-05-15 14:43:37 [main] INFO S.InputAndSearchVehicleRegistrationPage -  Inside DVLALandingPage : the_user_provides_vehicle_registration_number
+2018-05-15 14:43:43 [main] INFO S.InputAndSearchVehicleRegistrationPage - LARGE HEADING <Enter the registration number of the vehicle>
+2018-05-15 14:43:44 [main] INFO Steps.NavigateToDVLAWebsiteStep - Exiting STEP : input_registration_number(regNum)
+2018-05-15 14:43:44 [main] INFO Steps.NavigateToDVLAWebsiteStep - Inside  STEP : the_user_is_displayed_vehicle_detail(regNum)
+2018-05-15 14:43:44 [main] INFO S.VehicleRegistrationDetailPage -  Inside VehicleRegistrationDetailPage : the_user_is_displayed_vehicle_details
+2018-05-15 14:43:44 [main] INFO S.VehicleRegistrationDetailPage - LARGE HEADING <Is this the vehicle you are looking for?>
+2018-05-15 14:43:44 [main] INFO S.VehicleRegistrationDetailPage - Inside Error --- Is this the vehicle you are looking for?
+2018-05-15 14:43:44 [main] INFO S.VehicleRegistrationDetailPage - FOUND MAKE AUDI
+2018-05-15 14:43:44 [main] INFO S.VehicleRegistrationDetailPage - FOUND COLOUR BLUE
+2018-05-15 14:43:46 [main] INFO S.VehicleRegistrationDetailPage -  Exiting VehicleRegistrationDetailPage : the_user_is_displayed_vehicle_details
+2018-05-15 14:43:46 [main] INFO Steps.NavigateToDVLAWebsiteStep - Exiting STEP : the_user_is_displayed_vehicle_detail(regNum)
+2018-05-15 14:43:46 [main] INFO Steps.NavigateToDVLAWebsiteStep -  ==========================================>INSIDE TEARDOWN @SmokeTests

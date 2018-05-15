@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="USER_HOME" value="C:\Users\goldfish\IdeaProjects\showcase" />
+    <property name="USER_HOME" value="C:\\Users\\goldfish\\IdeaProjects\\aquarium" />
 
     <appender name="FILE-THREAD" class="ch.qos.logback.classic.sift.SiftingAppender">
 
@@ -47,15 +47,30 @@
             </Pattern>
         </layout>
     </appender>
-
-
-    <logger name="toad" level="debug"
+    <logger name="ServiceLayer" level="info"
             additivity="false">
         <appender-ref ref="FILE-THREAD" />
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="injectors" level="info"
+
+    <logger name="Runners" level="info"
+            additivity="false">
+        <appender-ref ref="FILE-THREAD" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="Screens" level="info"
+            additivity="false">
+        <appender-ref ref="FILE-THREAD" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="Steps" level="info"
+            additivity="false">
+        <appender-ref ref="FILE-THREAD" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="support" level="info"
             additivity="false">
         <appender-ref ref="FILE-THREAD" />
         <appender-ref ref="STDOUT" />

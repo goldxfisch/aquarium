@@ -1,6 +1,7 @@
 package Runner;
 
 import ServiceLayer.ScanDirectory;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.slf4j.Logger;
@@ -21,6 +22,11 @@ public class runUnitTestServiceLayer {
         List<FileDetails> listOfFiles =  new ScanDirectory().crawlDirectory();
         return listOfFiles;
         }
+
+    @Test
+    public void shouldValidatePresenceOfFolders() throws IOException {
+        List<FileDetails> fileSampler = new ScanDirectory().crawlDirectory();
+    }
 
 
 

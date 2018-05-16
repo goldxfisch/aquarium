@@ -72,15 +72,6 @@
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.assertthat/selenium-shutterbug -->
-
-        <dependency>
-            <groupId>com.assertthat</groupId>
-            <artifactId>selenium-shutterbug</artifactId>
-            <version>0.7</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.assertthat/selenium-shutterbug -->
-
         <dependency>
             <groupId>com.assertthat</groupId>
             <artifactId>selenium-shutterbug</artifactId>
@@ -101,12 +92,6 @@
             <artifactId>cucumber-picocontainer</artifactId>
             <version>1.2.5</version>
         </dependency>
-        <dependency>
-            <groupId>com.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>4.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.assertthat/selenium-shutterbug -->
 
         <dependency>
             <groupId>com.assertthat</groupId>
@@ -140,7 +125,7 @@
                         <manifest>
                             <!-- Jar file entry point -->
                             <addClasspath>true</addClasspath>
-                            <mainClass>injectors.MQMessageFeeder</mainClass>
+                            <mainClass>RunMe</mainClass>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>
                     </archive>
